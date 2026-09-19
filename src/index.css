@@ -1,3 +1,66 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @import url("https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css");
+
+@font-face {
+  font-family: "Dexotick";
+  src: url("/fonts/Dexotick.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Magilio";
+  src: url("/fonts/Magilio.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pilowlava";
+  src: url("/fonts/Pilowlava.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Kihim";
+  src: url("/fonts/Kihim.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Zen";
+  src: url("/fonts/Zen.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DreamHeumul";
+  src: url("/fonts/DreamHeumul.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: "Wanted Sans", sans-serif;
+  --font-dexotick: "Dexotick", sans-serif;
+  --font-magilio: "Magilio", sans-serif;
+  --font-pilowlava: "Pilowlava", sans-serif;
+  --font-kihim: "Kihim", sans-serif;
+  --font-zen: "Zen", sans-serif;
+  --font-heumul: "DreamHeumul", sans-serif;
+  --color-background: #f5f2ed;
+  --color-foreground: #2b2320;
+  --color-card: #ffffff;
+  --color-accent: #e8735a;
+}
+
+.dark {
+  --color-background: #1c1917;
+  --color-foreground: #f5f2ed;
+  --color-card: #262220;
+  --color-accent: #f2957e;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
