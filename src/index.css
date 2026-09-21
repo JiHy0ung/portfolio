@@ -39,15 +39,68 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Instrument";
+  src: url("/fonts/Instrument.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Instrument";
+  src: url("/fonts/Instrument.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gemini";
+  src: url("/fonts/Gemini.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Trickster";
+  src: url("/fonts/Trickster.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Paquito";
+  src: url("/fonts/Paquito.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NostalgicGukhanbakOchungiWriterKim";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2607161334@griunxhangeulochungikim-regular/griunxhangeulochungikim-regular/GriunXHangeulOCHUNGIKIM-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
 
 @theme {
+  --font-kihim: "Kihim", sans-serif;
+  --font-heumul: "DreamHeumul", sans-serif;
   --font-sans: "Wanted Sans", sans-serif;
+
+  --font-nostalgic: "NostalgicGukhanbakOchungiWriterKim", sans-serif;
+
   --font-dexotick: "Dexotick", sans-serif;
   --font-magilio: "Magilio", sans-serif;
   --font-pilowlava: "Pilowlava", sans-serif;
-  --font-kihim: "Kihim", sans-serif;
   --font-zen: "Zen", sans-serif;
-  --font-heumul: "DreamHeumul", sans-serif;
+  --font-paquito: "Paquito", sans-serif;
+
+  --font-instrument: "Instrument", sans-serif;
+  --font-fraunces: "Fraunces", sans-serif;
+  --font-gemini: "Gemini", sans-serif;
+  --font-trickster: "Trickster", sans-serif;
+
   --color-background: #f5f2ed;
   --color-foreground: #2b2320;
   --color-card: #ffffff;
