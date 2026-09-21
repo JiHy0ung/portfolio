@@ -125,12 +125,12 @@ const Home = () => {
       <Tooltip
         className="tooltip-2 float-b"
         style={{
-          right: "12%",
+          right: "14%",
           top: "20%",
           transform: "translateY(calc(-100% - 10px))",
         }}
       >
-        이 클릭 다음엔 뭐가 있을까?
+        다음은 어디로 향할까?
       </Tooltip>
 
       <img
@@ -175,7 +175,7 @@ const Home = () => {
           transform: "translateY(calc(-100% - 10px))",
         }}
       >
-        정말 필요한 버튼일까?
+        정말 필요한 요소일까?
       </Tooltip>
 
       <img
