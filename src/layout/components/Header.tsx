@@ -13,7 +13,7 @@ const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 backdrop-blur-3xl"
+            className="fixed inset-0 z-40 backdrop-blur-3xl bg-stone-50/80"
           />
         )}
       </AnimatePresence>
@@ -33,7 +33,7 @@ const Header = () => {
                 exit={{ opacity: 0, rotateX: 90 }}
                 transition={{ duration: 0.25 }}
               >
-                <X strokeWidth={1} size={32} />
+                <X strokeWidth={1} size={48} />
               </motion.div>
             ) : (
               <motion.p
