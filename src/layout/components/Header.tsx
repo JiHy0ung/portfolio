@@ -2,9 +2,13 @@ import { X } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Menu from "./Menu";
+import { useNavigate } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
+
   return (
     <>
       <AnimatePresence>
@@ -19,7 +23,12 @@ const Header = () => {
       </AnimatePresence>
 
       <div className="relative z-50 h-20 flex justify-between items-center px-6 py-2">
-        <h1 className="font-kihim text-4xl">YJH</h1>
+        <h1
+          className="font-kihim text-4xl cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          YJH
+        </h1>
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
           className="cursor-pointer"
