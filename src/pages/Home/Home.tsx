@@ -10,7 +10,7 @@ const Tooltip = ({
   <div
     className={`tooltip absolute z-20 whitespace-nowrap
                 px-3 py-1.5 rounded-xl ${className}
-              bg-rose-600/70 text-white text-sm font-sans font-semibold`}
+              bg-rose-700/80 text-white text-sm font-sans font-semibold`}
     style={style}
   >
     {children}
