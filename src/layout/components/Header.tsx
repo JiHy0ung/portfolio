@@ -22,7 +22,7 @@ const Header = () => {
         )}
       </AnimatePresence>
 
-      <div className="relative z-50 h-20 flex justify-between items-center px-6 py-2">
+      <div className="relative z-50 h-20 flex justify-between items-center px-6 py-2 ">
         <h1
           className="font-kihim text-4xl cursor-pointer"
           onClick={() => navigate("/")}
