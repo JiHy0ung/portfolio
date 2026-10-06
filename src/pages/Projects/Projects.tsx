@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Dial from "./components/Dial";
 import { projects } from "../../data/projects";
+import { Link } from "react-router";
+import { formatPeriod } from "../../utils/formatPeriod";
 
 const menu = ["All", "Group", "Personal"];
 
@@ -42,27 +44,38 @@ const Projects = () => {
 
       <div className="flex-1 min-h-0 overflow-y-auto flex flex-col mb-20">
         {filteredProjects.map((project, i) => (
-          <div
+          <Link
             key={project.id}
-            className="flex items-end border-b border-stone-400/80 pt-4 cursor-pointer"
+            to={`/projects/${project.id}`}
+            className="group flex gap-6 border-b border-stone-400/70 cursor-pointer"
           >
-            <div className="flex-1 flex flex-col items-between justify-end gap-2 p-4">
-              <div className="flex items-end justify-between">
-                <span className="text-7xl font-bold font-pilowlava text-rose-800">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-xl font-medium">{project.title}</h3>
+            <div className="flex-1 flex flex-col justify-between p-4">
+              <span className="self-start text-[10px] text-stone-500/80 tabular-nums bg-stone-300 px-2 py-0.5 rounded-lg">
+                {formatPeriod(project.start, project.end)}
+              </span>
+
+              <div className="flex flex-col gap-2">
+                <div className="flex items-end justify-between">
+                  <span className="text-7xl font-bold font-pilowlava text-rose-800">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-xl font-medium transition-colors group-hover:text-rose-800 group-focus-visible:text-rose-800">
+                    {project.title}
+                  </h3>
+                </div>
+                <p className="text-sm text-stone-500 mt-1 text-end">
+                  {project.des}
+                </p>
               </div>
-              <p className="text-sm text-stone-500 mt-1 text-end ">
-                {project.des}
-              </p>
             </div>
 
-            <div
-              className="flex-1 h-80 bg-cover bg-center"
-              style={{ backgroundImage: `url(${project.img})` }}
-            />
-          </div>
+            <div className="flex-1 h-80 overflow-hidden">
+              <div
+                className="h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105"
+                style={{ backgroundImage: `url(${project.img})` }}
+              />
+            </div>
+          </Link>
         ))}
       </div>
     </div>
