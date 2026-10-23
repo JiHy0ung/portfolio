@@ -1,22 +1,39 @@
-import React from "react";
+import { useState } from "react";
+import CursorTooltip from "../../components/CursorTooltip";
+import { useCursorTooltip } from "../../hooks/useCursorTooltip";
+
+/** 명함 뒷면 위에 겹쳐 둘 투명 링크 영역 */
+const CONTACT_LINKS = [
+  {
+    label: "GitHub",
+    ariaLabel: "GitHub 열기",
+    href: "https://github.com/JiHy0ung",
+    external: true,
+    className: "right-4 h-32",
+  },
+  {
+    label: "E-mail",
+    ariaLabel: "이메일 보내기",
+    href: "mailto:dbdnwm113@naver.com",
+    className: "right-10 h-35",
+  },
+  {
+    label: "Call",
+    ariaLabel: "전화 걸기",
+    href: "tel:010-6354-9405",
+    className: "right-16 h-26",
+  },
+];
 
 const Contact = () => {
-  const [rotation, setRotation] = React.useState(0);
-  const [hoverPos, setHoverPos] = React.useState<{
-    x: number;
-    y: number;
-    label: string;
-  } | null>(null);
+  const [rotation, setRotation] = useState(0);
+  const { tooltip, bind } = useCursorTooltip();
 
   const steps = Math.round(rotation / 180);
   const isBack = ((steps % 2) + 2) % 2 === 1;
 
-  const handleClick = () => {
+  const handleFlip = () => {
     setRotation((prev) => prev + 180);
-  };
-
-  const handleMouseMove = (label: string) => (e: React.MouseEvent) => {
-    setHoverPos({ x: e.clientX, y: e.clientY, label });
   };
 
   return (
@@ -36,7 +53,7 @@ const Contact = () => {
         >
           {/* 카드 앞면 */}
           <div
-            className="card-front metal-shine absolute inset-0 flex flex-col justify-between"
+            className="card-front metal-shine absolute inset-0"
             style={{
               backfaceVisibility: "hidden",
               backgroundImage: "url(/images/card-front.png)",
@@ -47,7 +64,7 @@ const Contact = () => {
 
           {/* 뒷면 */}
           <div
-            className="card-back absolute inset-0 flex flex-col justify-center gap-2"
+            className="card-back absolute inset-0"
             style={{
               backfaceVisibility: "hidden",
               backgroundImage: "url(/images/card-back.png)",
@@ -56,36 +73,26 @@ const Contact = () => {
             }}
           />
 
-          {isBack && (
-            <>
+          {isBack &&
+            CONTACT_LINKS.map((link) => (
               <a
-                href="https://github.com/JiHy0ung"
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseMove={handleMouseMove("GitHub")}
-                onMouseLeave={() => setHoverPos(null)}
-                className="absolute top-4 right-4 h-32 w-5.5 cursor-pointer"
+                key={link.label}
+                href={link.href}
+                aria-label={link.ariaLabel}
+                {...(link.external && {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                })}
+                {...bind(link.label)}
+                className={`absolute top-4 w-5.5 cursor-pointer ${link.className}`}
               />
-              <a
-                href="mailto:dbdnwm113@naver.com"
-                onMouseMove={handleMouseMove("E-mail")}
-                onMouseLeave={() => setHoverPos(null)}
-                className="absolute top-4 right-10 h-35 w-5.5 cursor-pointer"
-              />
-              <a
-                href="tel:010-6354-9405"
-                onMouseMove={handleMouseMove("Call")}
-                onMouseLeave={() => setHoverPos(null)}
-                className="absolute top-4 right-16 h-26 w-5.5 cursor-pointer"
-              />
-            </>
-          )}
+            ))}
         </div>
 
         <button
-          onClick={handleClick}
-          onMouseMove={handleMouseMove("click!")}
-          onMouseLeave={() => setHoverPos(null)}
+          type="button"
+          onClick={handleFlip}
+          {...bind("click!")}
           aria-label="카드 뒤집기"
           className={`flip-btn absolute w-1/4 h-1/4 cursor-pointer bg-transparent border-none ${
             isBack ? "left-0 bottom-0" : "right-0 bottom-0"
@@ -93,15 +100,8 @@ const Contact = () => {
         />
       </div>
 
-      {hoverPos && (
-        <div
-          className="fixed z-20 pointer-events-none px-2 py-1 rounded-lg
-              bg-black text-white text-[12px] font-sans font-semibold"
-          style={{ left: hoverPos.x + 14, top: hoverPos.y + 14 }}
-        >
-          {hoverPos.label}
-        </div>
-      )}
+      {/* 회전하는 카드 바깥에 두어야 마우스 위치에 정확히 붙음 */}
+      <CursorTooltip tooltip={tooltip} />
 
       <style>
         {`
@@ -150,13 +150,13 @@ const Contact = () => {
             mix-blend-mode: overlay;
             filter: blur(1.5px);
             pointer-events: none;
-              animation: shine 9s cubic-bezier(0.45, 0, 0.15, 1) infinite;
-            }
-            @keyframes shine {
-              0% { transform: translateX(-140%) rotate(10deg); }
-              45% { transform: translateX(140%) rotate(10deg); }
-              100% { transform: translateX(140%) rotate(10deg); }
-            }
+            animation: shine 9s cubic-bezier(0.45, 0, 0.15, 1) infinite;
+          }
+          @keyframes shine {
+            0% { transform: translateX(-140%) rotate(10deg); }
+            45% { transform: translateX(140%) rotate(10deg); }
+            100% { transform: translateX(140%) rotate(10deg); }
+          }
         `}
       </style>
     </div>
