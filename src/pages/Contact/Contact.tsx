@@ -37,7 +37,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="h-screen w-full flex items-center justify-center -mt-20">
+    <div className="h-screen w-full flex items-center justify-center">
       <div
         className="card-outer relative w-72 h-96 transition-transform duration-700"
         style={{
