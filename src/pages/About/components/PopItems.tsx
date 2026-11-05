@@ -54,7 +54,6 @@ const PopItems = ({ items, open }: PopItemsProps) => {
         >
           <img
             src={item.src}
-            alt={item.label}
             className="size-full object-contain"
             draggable={false}
           />
