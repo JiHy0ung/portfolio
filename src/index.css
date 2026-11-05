@@ -1,7 +1,7 @@
-@import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
-
 @import url("https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
   font-family: "Dexotick";
@@ -46,12 +46,6 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "Instrument";
-  src: url("/fonts/Instrument.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
   font-family: "Fraunces";
   src: url("/fonts/Fraunces.ttf") format("truetype");
   font-weight: normal;
@@ -82,29 +76,59 @@
   font-weight: 400;
   font-display: swap;
 }
+@font-face {
+  font-family: "GeuriunXKukhanbakTture";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2607161334@x-7/x/GriunXHangeulDDURAE-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
 
 @theme {
+  --font-sans: "Wanted Sans", sans-serif;
   --font-kihim: "Kihim", sans-serif;
   --font-heumul: "DreamHeumul", sans-serif;
-  --font-sans: "Wanted Sans", sans-serif;
-
   --font-nostalgic: "NostalgicGukhanbakOchungiWriterKim", sans-serif;
-
   --font-dexotick: "Dexotick", sans-serif;
   --font-magilio: "Magilio", sans-serif;
   --font-pilowlava: "Pilowlava", sans-serif;
   --font-zen: "Zen", sans-serif;
   --font-paquito: "Paquito", sans-serif;
-
   --font-instrument: "Instrument", sans-serif;
-  --font-fraunces: "Fraunces", sans-serif;
+  --font-fraunces: "Fraunces", serif;
   --font-gemini: "Gemini", sans-serif;
   --font-trickster: "Trickster", sans-serif;
+  --font-geuriun: "GeuriunXKukhanbakTture", sans-serif;
 
   --color-background: #f5f2ed;
   --color-foreground: #2b2320;
   --color-card: #ffffff;
   --color-accent: #e8735a;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-typing: typing 1.2s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes typing {
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    30% {
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+  }
 }
 
 .dark {
@@ -124,14 +148,6 @@ body,
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-}
-
-@layer base {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 }
 
 ::-webkit-scrollbar {
@@ -156,18 +172,5 @@ body,
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
-  }
-}
-
-@theme {
-  --animate-marquee: marquee 40s linear infinite;
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
   }
 }
