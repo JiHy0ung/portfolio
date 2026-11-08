@@ -40,7 +40,7 @@ const HomeHero = () => (
         variants={riseVariants}
         className="font-fraunces mt-2 text-7xl leading-[0.86] tracking-tight sm:text-8xl xl:text-[8.5rem]"
       >
-        Yoo
+        You
         <br />
         {/* 밑줄을 넣어도 마침표가 다음 줄로 넘어가지 않게 묶음 */}
         <span className="whitespace-nowrap">
