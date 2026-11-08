@@ -12,7 +12,7 @@ export const profile = {
   name: "유지형",
   role: "Frontend Developer",
   video: "/images/about/about_video.mp4",
-  photo: "/images/about/photo.png",
+  photo: "/images/about/photo.webp",
 
   intro:
     "한눈에 이해되고, 오래 머물고 싶은 화면을 만드는 프론트엔드 개발자입니다.",

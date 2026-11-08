@@ -56,7 +56,7 @@ const Contact = () => {
             className="card-front metal-shine absolute inset-0"
             style={{
               backfaceVisibility: "hidden",
-              backgroundImage: "url(/images/card-front.png)",
+              backgroundImage: "url(/images/card-front.webp)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -67,7 +67,7 @@ const Contact = () => {
             className="card-back absolute inset-0"
             style={{
               backfaceVisibility: "hidden",
-              backgroundImage: "url(/images/card-back.png)",
+              backgroundImage: "url(/images/card-back.webp)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

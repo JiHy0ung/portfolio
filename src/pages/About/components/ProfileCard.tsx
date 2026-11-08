@@ -86,6 +86,7 @@ const ProfileCard = ({ active, ...handlers }: ProfileCardProps) => {
           preload="auto"
           aria-hidden="true"
           className="absolute inset-0 size-full object-cover"
+          poster="/images/about/about_video-poster.webp"
           // 세로를 자를 때 얼굴과 흔드는 손이 모두 보이는 높이
           style={{ objectPosition: "50% 30%" }}
         >
