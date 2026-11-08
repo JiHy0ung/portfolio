@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import type { Project } from "../../../data/projects";
 import { formatPeriod } from "../../../utils/formatPeriod";
+import { useImagesLoaded } from "../../../hooks/useImagesLoaded";
 
 const MAX_STACK = 5;
 
@@ -31,6 +32,7 @@ type FolderContentProps = {
 /** 맨 앞 폴더 안쪽 — 클립으로 꽂은 스크린샷 + 포스트잇 + 프로젝트 정보 */
 const FolderContent = ({ project, onOpen }: FolderContentProps) => {
   const stack = project.stack ?? [];
+  const thumbLoaded = useImagesLoaded([project.thumbnail]);
 
   return (
     <motion.div
@@ -46,7 +48,15 @@ const FolderContent = ({ project, onOpen }: FolderContentProps) => {
           style={{ backgroundImage: `url(${project.thumbnail})` }}
           role="img"
           aria-label={`${project.title} 화면`}
-        />
+        >
+          {/* 스크린샷이 뜨기 전까지 덮는 스켈레톤 — 다 뜨면 서서히 사라짐 */}
+          <span
+            aria-hidden="true"
+            className={`absolute inset-0 rounded-sm bg-stone-200 transition-opacity duration-500 ${
+              thumbLoaded ? "opacity-0" : "animate-pulse opacity-100"
+            }`}
+          />
+        </div>
         <svg
           aria-hidden="true"
           viewBox="0 0 24 64"

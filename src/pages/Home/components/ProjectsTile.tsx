@@ -3,13 +3,17 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "../../../data/projects";
 import Tile from "./Tile";
+import { useImagesLoaded } from "../../../hooks/useImagesLoaded";
 
 const showcase = projects.slice(0, 3);
+/** 썸네일 세 장을 처음에 모두 받아 둠 — 목록에 마우스를 올려 바꿀 때 기다리지 않도록 */
+const SHOWCASE_THUMBS = showcase.map((p) => p.thumbnail);
 
 /** Projects 칸: 목록에서 마우스를 올린 프로젝트의 썸네일을 오른쪽에 크게 보여 줌 */
 const ProjectsTile = () => {
   const [activeId, setActiveId] = useState(showcase[0]?.id);
   const active = showcase.find((p) => p.id === activeId) ?? showcase[0];
+  const thumbsLoaded = useImagesLoaded(SHOWCASE_THUMBS);
 
   return (
     <Tile
@@ -83,6 +87,13 @@ const ProjectsTile = () => {
               transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
             />
           </AnimatePresence>
+
+          {/* 썸네일이 뜨기 전까지 덮는 스켈레톤 — 어두운 칸에 맞춰 짙은 색 */}
+          <span
+            className={`pointer-events-none absolute inset-0 bg-stone-700 transition-opacity duration-500 ${
+              thumbsLoaded ? "opacity-0" : "animate-pulse opacity-100"
+            }`}
+          />
         </span>
       )}
     </Tile>

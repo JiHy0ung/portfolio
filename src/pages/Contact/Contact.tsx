@@ -1,6 +1,20 @@
 import { useState } from "react";
 import CursorTooltip from "../../components/CursorTooltip";
 import { useCursorTooltip } from "../../hooks/useCursorTooltip";
+import { useImagesLoaded } from "../../hooks/useImagesLoaded";
+
+const CARD_FRONT = "/images/card_front.webp";
+const CARD_BACK = "/images/card_back.webp";
+
+/** 명함 이미지가 뜨기 전까지 면 위를 덮는 스켈레톤 — 다 뜨면 서서히 사라짐 */
+const CardSkeleton = ({ loaded }: { loaded: boolean }) => (
+  <div
+    aria-hidden="true"
+    className={`pointer-events-none absolute inset-0 bg-stone-200 transition-opacity duration-500 ${
+      loaded ? "opacity-0" : "animate-pulse opacity-100"
+    }`}
+  />
+);
 
 /** 명함 뒷면 위에 겹쳐 둘 투명 링크 영역 */
 const CONTACT_LINKS = [
@@ -28,6 +42,7 @@ const CONTACT_LINKS = [
 const Contact = () => {
   const [rotation, setRotation] = useState(0);
   const { tooltip, bind } = useCursorTooltip();
+  const cardLoaded = useImagesLoaded([CARD_FRONT, CARD_BACK]);
 
   const steps = Math.round(rotation / 180);
   const isBack = ((steps % 2) + 2) % 2 === 1;
@@ -56,22 +71,26 @@ const Contact = () => {
             className="card-front metal-shine absolute inset-0"
             style={{
               backfaceVisibility: "hidden",
-              backgroundImage: "url(/images/card_front.webp)",
+              backgroundImage: `url(${CARD_FRONT})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          />
+          >
+            <CardSkeleton loaded={cardLoaded} />
+          </div>
 
           {/* 뒷면 */}
           <div
             className="card-back absolute inset-0"
             style={{
               backfaceVisibility: "hidden",
-              backgroundImage: "url(/images/card_back.webp)",
+              backgroundImage: `url(${CARD_BACK})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          />
+          >
+            <CardSkeleton loaded={cardLoaded} />
+          </div>
 
           {isBack &&
             CONTACT_LINKS.map((link) => (
