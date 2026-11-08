@@ -1,17 +1,20 @@
 @import url("https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css");
 @import "tailwindcss";
 
+/* 쓰는 글자만 남긴 woff2 — 영문·숫자·기호(+ DreamHeumul은 한글 2,350자) */
 @font-face {
   font-family: "DreamHeumul";
-  src: url("/fonts/DreamHeumul.ttf") format("truetype");
+  src: url("/fonts/DreamHeumul.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("/fonts/Fraunces.ttf") format("truetype");
+  src: url("/fonts/Fraunces.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "GeuriunXKukhanbakTture";
