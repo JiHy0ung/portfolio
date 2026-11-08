@@ -1,47 +1,9 @@
 @import url("https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css");
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
-@font-face {
-  font-family: "Dexotick";
-  src: url("/fonts/Dexotick.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Magilio";
-  src: url("/fonts/Magilio.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Pilowlava";
-  src: url("/fonts/Pilowlava.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Kihim";
-  src: url("/fonts/Kihim.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Zen";
-  src: url("/fonts/Zen.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
 @font-face {
   font-family: "DreamHeumul";
   src: url("/fonts/DreamHeumul.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Instrument";
-  src: url("/fonts/Instrument.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -50,31 +12,6 @@
   src: url("/fonts/Fraunces.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
-@font-face {
-  font-family: "Gemini";
-  src: url("/fonts/Gemini.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Trickster";
-  src: url("/fonts/Trickster.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Paquito";
-  src: url("/fonts/Paquito.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "NostalgicGukhanbakOchungiWriterKim";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/2607161334@griunxhangeulochungikim-regular/griunxhangeulochungikim-regular/GriunXHangeulOCHUNGIKIM-Regular.woff2")
-    format("woff2");
-  font-weight: 400;
-  font-display: swap;
 }
 @font-face {
   font-family: "GeuriunXKukhanbakTture";
@@ -86,24 +23,9 @@
 
 @theme {
   --font-sans: "Wanted Sans", sans-serif;
-  --font-kihim: "Kihim", sans-serif;
   --font-heumul: "DreamHeumul", sans-serif;
-  --font-nostalgic: "NostalgicGukhanbakOchungiWriterKim", sans-serif;
-  --font-dexotick: "Dexotick", sans-serif;
-  --font-magilio: "Magilio", sans-serif;
-  --font-pilowlava: "Pilowlava", sans-serif;
-  --font-zen: "Zen", sans-serif;
-  --font-paquito: "Paquito", sans-serif;
-  --font-instrument: "Instrument", sans-serif;
   --font-fraunces: "Fraunces", serif;
-  --font-gemini: "Gemini", sans-serif;
-  --font-trickster: "Trickster", sans-serif;
   --font-geuriun: "GeuriunXKukhanbakTture", sans-serif;
-
-  --color-background: #f5f2ed;
-  --color-foreground: #2b2320;
-  --color-card: #ffffff;
-  --color-accent: #e8735a;
 
   --animate-marquee: marquee 40s linear infinite;
   --animate-typing: typing 1.2s ease-in-out infinite;
@@ -129,17 +51,6 @@
       opacity: 1;
     }
   }
-}
-
-.dark {
-  --color-background: #1c1917;
-  --color-foreground: #f5f2ed;
-  --color-card: #262220;
-  --color-accent: #f2957e;
-}
-
-body {
-  @apply bg-background text-foreground;
 }
 
 html,
