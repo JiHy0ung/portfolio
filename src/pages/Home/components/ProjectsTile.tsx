@@ -50,7 +50,7 @@ const ProjectsTile = () => {
             >
               <span
                 className={`font-fraunces text-sm italic tabular-nums transition-colors ${
-                  isActive ? "text-rose-500" : "text-stone-400/60"
+                  isActive ? "text-rose-500" : "text-stone-400/70"
                 }`}
               >
                 {String(i + 1).padStart(2, "0")}
