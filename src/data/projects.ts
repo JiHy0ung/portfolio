@@ -227,7 +227,14 @@ export const projects: Project[] = [
     overview:
       "저를 소개할 공간이 필요해서 직접 기획하고 디자인해 만든 포트폴리오 사이트입니다. 개발뿐 아니라 디자인에도 신경을 쓰는 사람이라는 것을 보여 주고 싶어 사이트 자체가 하나의 작업물로 보이도록 꾸몄습니다. 프로젝트 정보는 데이터 파일 하나로 관리하여 새프로젝트를 추가할 때 화면 코드를 고치지 않도록 설계했습니다.",
     role: "기획 · 디자인 · 개발",
-    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "React Router"],
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Motion",
+    ],
     features: [
       "Projects · About · Contact로 이어지는 홈 안내판",
       "마우스를 올리면 좋아하는 것들이 펼쳐지는 About 카드",
@@ -246,6 +253,14 @@ export const projects: Project[] = [
     troubleshooting: [
       {
         problem:
+          "배포 후 첫 로딩이 느림. Lighthouse 성능 83점, 페이지 무게 16.5MB로 원본 png·gif·mov 파일과 전체 폰트를 그대로 쓰고 있었던 것이 원인",
+        solution:
+          "이미지는 webp, 영상은 mp4로 변환하고 폰트는 쓰는 글자만 남긴 woff2로 줄임. 폰트 CSS를 @import 대신 link로 불러와 렌더링을 막지 않도록 하고, 모바일 LCP 요소인 홈 제목은 투명도 없이 위치만 움직이도록 수정",
+        result:
+          "페이지 무게 16.5MB → 489KB, Lighthouse 성능 데스크톱 100점·모바일 96점",
+      },
+      {
+        problem:
           "슬라이더에 넣은 화면 녹화 영상이 재생되지 않음. 모든 항목을 img로 그리고 있었고, 파일도 Chrome에서 재생되지 않는 mov 형식이었음",
         solution:
           "영상을 mp4로 변환하고, 확장자로 영상을 구분해 video 태그로 그리도록 나눔. 자동 재생이 막히지 않도록 muted와 playsInline을 함께 지정",
@@ -261,9 +276,9 @@ export const projects: Project[] = [
       },
     ],
     learnings: [
+      "개발할 때는 몰랐던 느린 로딩을 배포 후에야 알게 되어 Lighthouse로 측정해 보니 이미지·영상·폰트 용량이 원인이었고, 화면 밖에서 놓치기 쉬운 부분도 사용자 경험의 일부라는 것을 배움",
       "CSS가 예상과 다르게 동작할 때 값을 바꿔 가며 맞추기보다, transform이 fixed의 기준을 바꾸는 것처럼 원인이 되는 규칙을 먼저 찾아보게 됨",
       "데이터 타입을 먼저 설계하고 화면을 그리니, 값이 없는 경우의 처리를 타입 오류로 미리 잡을 수 있었음",
-      "슬라이더와 모달, 폴더 탭을 직접 만들면서 평소 라이브러리가 대신 처리해 주던 키보드 조작과 접근성을 하나씩 챙기게 됨",
     ],
     links: {},
     screenshots: [
