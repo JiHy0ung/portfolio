@@ -12,7 +12,7 @@ const AboutTile = () => (
       <span className="font-fraunces block text-[1.75rem] sm:text-4xl">
         About
       </span>
-      <span className="mt-1 block text-[13px] opacity-75">
+      <span className="mt-1 block text-[13px] opacity-80">
         코드 안팎의 유지형
       </span>
     </span>

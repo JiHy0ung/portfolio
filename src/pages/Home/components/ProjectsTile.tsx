@@ -45,12 +45,12 @@ const ProjectsTile = () => {
               key={p.id}
               onMouseEnter={() => setActiveId(p.id)}
               className={`flex items-baseline gap-3 border-t border-white/10 py-2 transition-colors duration-200 ${
-                isActive ? "text-stone-50" : "text-stone-500"
+                isActive ? "text-stone-50" : "text-stone-400/80"
               }`}
             >
               <span
                 className={`font-fraunces text-sm italic tabular-nums transition-colors ${
-                  isActive ? "text-rose-500" : "text-stone-600"
+                  isActive ? "text-rose-500" : "text-stone-400/60"
                 }`}
               >
                 {String(i + 1).padStart(2, "0")}
