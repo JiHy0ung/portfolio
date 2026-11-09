@@ -15,6 +15,14 @@ const riseVariants = {
   },
 } as const;
 
+const titleVariants = {
+  hidden: { y: 24 },
+  show: {
+    y: 0,
+    transition: { duration: 0.6, ease: [0.2, 0.8, 0.2, 1] },
+  },
+} as const;
+
 const LAST_UPDATED = new Date(__BUILD_DATE__).toLocaleDateString("en-US", {
   month: "short",
   year: "numeric",
@@ -37,7 +45,7 @@ const HomeHero = () => (
         Welcome to my portfolio <span className="text-lg">✦</span>
       </motion.p>
       <motion.h1
-        variants={riseVariants}
+        variants={titleVariants}
         className="font-fraunces mt-2 text-7xl leading-[0.86] tracking-tight sm:text-8xl xl:text-[8.5rem]"
       >
         You
