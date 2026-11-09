@@ -282,7 +282,9 @@ export const projects: Project[] = [
     ],
     links: {},
     screenshots: [
-      { src: "/images/projects/portfolio/portfolio.mp4", desc: "메인 홈 화면" },
+      { src: "/images/projects/portfolio/portfolio.mp4", desc: "Home 화면" },
+      { src: "/images/projects/portfolio/projects.mp4", desc: "Projects 화면" },
+      { src: "/images/projects/portfolio/about.mp4", desc: "About 화면" },
       { src: "/images/projects/portfolio/contact.mp4", desc: "Contact 화면" },
     ],
   },
