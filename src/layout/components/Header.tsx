@@ -56,7 +56,14 @@ const Header = () => {
           menuOpen ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
       >
-        <img ref={logoRef} className="h-15" src="/logo_light.png" alt="" />
+        <img
+          ref={logoRef}
+          className="h-15"
+          src="/logo_light.webp"
+          width={60}
+          height={60}
+          alt=""
+        />
       </button>
 
       {/* 메뉴 버튼 — 화면 오른쪽 위에 떠 있음, 자리를 차지하지 않음 */}
