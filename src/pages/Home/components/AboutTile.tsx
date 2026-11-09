@@ -1,7 +1,7 @@
 import Tile, { TileArrow } from "./Tile";
 
-/** About 칸에서 빼꼼 내미는 캐릭터 (눈만 깜빡이는 webp) — 파일 위치에 맞게 바꾸기 */
-const ABOUT_GIF = "/images/home/blink.webp";
+const ABOUT_VIDEO = "/images/home/blink.mp4";
+const ABOUT_POSTER = "/images/home/blink-poster.webp";
 
 const AboutTile = () => (
   <Tile
@@ -25,10 +25,14 @@ const AboutTile = () => (
       <span className="absolute -top-3 -left-9 hidden rounded-2xl rounded-br-[4px] bg-white px-3 py-1 text-xs font-medium text-stone-900 shadow-sm transition-transform duration-300 group-hover:scale-110 sm:block">
         hi!
       </span>
-      <img
-        src={ABOUT_GIF}
-        alt=""
-        draggable={false}
+      <video
+        src={ABOUT_VIDEO}
+        poster={ABOUT_POSTER}
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
         className="aspect-[3/4] w-full rounded-t-full object-cover object-top"
       />
     </span>
