@@ -47,7 +47,7 @@ const Header = () => {
       {/* 로고 — 모바일은 왼쪽 위, 넓은 화면은 오른쪽 아래에 사인처럼 */}
       <button
         type="button"
-        aria-label="홈으로"
+        aria-label={menuOpen ? "메뉴 닫기" : "메뉴 열기"}
         aria-hidden={menuOpen}
         tabIndex={menuOpen ? -1 : 0}
         onClick={() => navigate("/")}
