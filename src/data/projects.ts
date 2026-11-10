@@ -181,7 +181,7 @@ export const projects: Project[] = [
       "react-speech-recognition을 활용한 음성 메모 입력 구현과 배포 환경 호환성 문제 해결",
       "Cloudinary 이미지 업로드 구현",
       "FullCalendar 연동과 미완료 우선 정렬 Task Board 구현",
-      "Heatmap용 월간 완료 현황 API(GET /api/notes/status) 설계와 구현: 완료된 Task·Reminder를 일자별로 집계하고 총합 제공",
+      "Heatmap용 월간 완료 현황 API(GET /api/notes/status) 설계와 구현: 완료된 Task·Reminder를 일자별로 집계하고, 잘못된 연도·월 요청에는 한국어 에러 메시지로 응답",
       "요청 연도·월 유효성 검사와 잘못된 입력에 대한 한국어 에러 메시지 처리",
     ],
     troubleshooting: [
@@ -225,7 +225,7 @@ export const projects: Project[] = [
     desc: "개인 포트폴리오 사이트",
     category: "Personal",
     start: "2026-09",
-    end: "2026-10",
+    end: "2026-11",
     thumbnail: "/images/projects/portfolio/thumb.webp",
     overview:
       "저를 소개할 공간이 필요해서 직접 기획하고 디자인해 만든 포트폴리오 사이트입니다. 개발뿐 아니라 디자인에도 신경을 쓰는 사람이라는 것을 보여 주고 싶어 사이트 자체가 하나의 작업물로 보이도록 꾸몄습니다. 프로젝트 정보는 데이터 파일 하나로 관리하여 새프로젝트를 추가할 때 화면 코드를 고치지 않도록 설계했습니다.",
@@ -243,6 +243,7 @@ export const projects: Project[] = [
       "마우스를 올리면 좋아하는 것들이 펼쳐지는 About 카드",
       "프로젝트 상세 모달과 이미지·영상 슬라이더",
       "커서를 따라오는 툴팁과 빛",
+      "이미지·영상·폰트 경량화와 로딩 순서 조정으로 Lighthouse 성능 데스크톱 100점·모바일 96점 달성",
     ],
     contributions: [
       "탭을 누르면 폴더가 앞으로 나오는 서류 폴더 전환을 스프링 애니메이션으로 구현",
@@ -339,29 +340,34 @@ export const projects: Project[] = [
           "무역 대기 타이머를 1초마다 줄이는 방식은 탭이 백그라운드에 있으면 브라우저가 interval을 늦춰 실제 시간과 어긋남",
         solution:
           "종료 시각을 localStorage에 저장하고 매번 현재 시각과의 차이로 남은 시간을 계산, focus·visibilitychange 시 즉시 재계산",
+        result: "탭을 오래 비워 두어도 실제 시간과 같은 남은 시간을 표시",
       },
       {
         problem:
           "타이머 종료 시 알림음이 브라우저 자동재생 정책에 막혀 재생되지 않음",
         solution:
           "타이머를 시작하는 클릭 시점에 오디오를 한 번 재생 후 멈춰 재생 권한을 미리 확보",
+        result: "타이머가 끝나면 알림음이 정상적으로 재생",
       },
       {
         problem:
           "무역판 데이터 구조를 한 칸 한 아이템에서 한 칸 여러 아이템으로 바꾸자 기존 사용자의 저장 데이터가 깨짐",
         solution:
           "불러올 때 이전 형식을 감지해 새 구조로 변환하는 마이그레이션 처리",
+        result: "기존 사용자도 데이터 손실없이 새 무역판을 그대로 사용",
       },
       {
         problem:
           "레시피 데이터마다 재료 이름 띄어쓰기가 달라 하위 레시피 매칭과 검색이 실패",
         solution: "공백을 제거한 이름으로 비교하도록 매칭 로직 수정",
+        result: "띄어쓰기가 달라도 하위 레시피와 검색 결과가 정확히 연결",
       },
       {
         problem:
           "디스코드 플레이어 제보와 화면 녹화로, 크롬 번역을 켠 상태에서 NPC 호감도 페이지의 첫 NPC에서 다른 NPC를 고르면 화면이 통째로 사라지고 픽셀 폰트가 깨지는 문제를 발견. 한국어 사이트인데 html의 lang이 en으로 되어 있어 번역이 켜지기 쉬웠고, 번역 기능이 글자를 다른 태그로 바꿔 넣으면서 React가 알고 있는 화면 구조와 실제 화면이 어긋난 것이 원인",
         solution:
           'html의 lang을 ko로 바로잡고 translate="no"를 지정해 사이트가 번역되지 않도록 막은 뒤 핫픽스로 바로 배포',
+        result: "제보 당일 핫픽스로 번역 상태에서도 화면이 깨지지 않도록 해결",
       },
     ],
     learnings: [
