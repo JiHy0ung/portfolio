@@ -179,7 +179,7 @@ export const projects: Project[] = [
     contributions: [
       "react-speech-recognition으로 음성 메모 입력 구현과 배포 환경 호환성 문제 해결",
       "Cloudinary 이미지 업로드 구현",
-      "FullCalendar 연동과 미완료 항목을 위에 두는 Task Board 구현",
+      "캘린더에 AI 분류 결과(Task·Reminder)를 카테고리 색으로 연결하고 미완료 할 일만 모아 보는 Task Board 구현",
       "Heatmap용 월간 완료 현황 API(GET /api/notes/status) 설계·구현: 완료된 Task·Reminder를 일자별로 집계하고 잘못된 연도·월 요청에는 한국어 에러 메시지로 응답",
     ],
     troubleshooting: [
